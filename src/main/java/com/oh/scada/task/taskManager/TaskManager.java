@@ -58,8 +58,8 @@ public class TaskManager implements Runnable{
                         for (int i = 0; i < grains.size(); i++) {
                             //检测任务管理器里是否含有涉及的grains
                             if (grainIsWorkingMap.containsKey(grains.get(i))){ //如果任务管理器里 含有 涉及的grains
-                                boolean thisGrainCanExcute = grainIsWorkingMap.get(grains.get(i)); // 检查任务管理器里的这个grain 的状态是否在执行任务中
-                                if (!thisGrainCanExcute){
+                                boolean thisGrainIsWorking = grainIsWorkingMap.get(grains.get(i)); // 检查任务管理器里的这个grain 的状态是否在执行任务中
+                                if (thisGrainIsWorking){
                                     canExcute =false; //如果有一个grain 在执行任务中，，也就是不能分配待执行的任务，这个任务会停在queue里，线程停在这里。
                                 }
                             }else {  //如果待分配任务涉及到的grain不存在于taskManager里，会报错。
@@ -75,6 +75,9 @@ public class TaskManager implements Runnable{
                     if(canExcute){
                         try {
                             task = taskQueue.poll();
+                            for (int i = 0; i < grains.size(); i++) {
+                                grainIsWorkingMap.put(grains.get(i),true);
+                            }
                             taskExecutor.execute(task); //把task交给 taskExecutor去执行
                         }catch (Exception e){
                             System.out.println(e.toString());
