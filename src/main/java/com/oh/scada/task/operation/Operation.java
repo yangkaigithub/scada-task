@@ -6,7 +6,6 @@ package com.oh.scada.task.operation;
 public class Operation {
 
     public void operate(int vid , int opCode ,int type){}
-
     public void operate(int vid , int opCode ){}
 
     public void reOperate(int vid , int opCode){}
