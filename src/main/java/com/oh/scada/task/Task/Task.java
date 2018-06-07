@@ -7,7 +7,8 @@ public class Task {
     private ArrayList<String> operateGrains;
     private ArrayList<HashMap<String,String>> operations;
     private String name;
-    Task(ArrayList<String> operateGrains,ArrayList<HashMap<String,String>> operations){
+    Task(String name, ArrayList<String> operateGrains,ArrayList<HashMap<String,String>> operations){
+        this.name = name;
         this.operateGrains = operateGrains;
         this.operations = operations;
     }
