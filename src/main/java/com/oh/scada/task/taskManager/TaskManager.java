@@ -2,11 +2,11 @@ package com.oh.scada.task.taskManager;
 
 import com.oh.scada.task.Task.Task;
 import com.oh.scada.task.excutor.TaskExecutor;
-import com.oh.scada.task.operation.Operation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import java.util.concurrent.*;
 
 /**
@@ -14,26 +14,44 @@ import java.util.concurrent.*;
  */
 public class TaskManager{
 
-    private ConcurrentHashMap<String, Boolean> grainIsWorkingMap;
-    private ConcurrentHashMap<String, Integer> workingTasks;
+
+
+
+    /* 调用 taskExecutor  ，去执行task */
+    @Autowired
+    private TaskExecutor taskExecutor;
+
+    /* 存放着 grain 是否在工作的状态信息 */
+    private ConcurrentHashMap<String ,Boolean> grainIsWorkingMap;
+
+    /* 存放着正在执行的task */
+    private ConcurrentHashMap<String,Integer> workingTasks;
+
+    /* taskQueue 存放着待分配去执行的 task */
     private BlockingQueue<Task> taskQueue;
+
+    /* 分配task的线程 */
     private ExecutorService allocateThread;
+
+    /* taskManager 工作状态 */
     private boolean isRunning;
+
+    /* taskManager 的信息 */
     private ConcurrentLinkedQueue<String> messageQueue;
 
 
 
-    @Autowired
-    private TaskExecutor taskExecutor;
 
     public void init(){
         grainIsWorkingMap = getGrainIsWorkingMap();
+
         workingTasks = new ConcurrentHashMap<String, Integer>();
         taskQueue = new LinkedBlockingQueue<Task>();
         messageQueue = new ConcurrentLinkedQueue<String>();
         isRunning = true;
         allocateThread = Executors.newSingleThreadExecutor();
         allocateThread.execute(this::run);
+
     }
 
     public void addTask(Task task) {
@@ -60,6 +78,9 @@ public class TaskManager{
      */
     public void run() {
         try {
+//            Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+//            long lastTime =calendar.getTimeInMillis();
+
             while (isRunning) {
                 //  待分配的任务的队列，检查首位是否可以执行分配。
                 Task task = taskQueue.peek();
@@ -101,14 +122,24 @@ public class TaskManager{
                             taskExecutor.bootTask(task);
                         } catch (Exception e) {
                             e.printStackTrace();
+
                         }
                     }
                 }
+
+//                calendar = Calendar.getInstance(TimeZone.getDefault());
+//                long thisTime =calendar.getTimeInMillis();
+//                if (thisTime -lastTime>=2000){
+//                    lastTime = thisTime;
+//                    System.out.println( "lalala");
+//                }
+
             }
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        } finally {
-            isRunning = false;
+        }catch (Exception e){
+            System.out.println(e.toString()+"2");
+        }finally {
+            isRunning=false;
+
         }
     }
 
@@ -131,4 +162,13 @@ public class TaskManager{
         }
     }
 
+
+    public void setTaskExecutor(TaskExecutor taskExecutor) {
+        this.taskExecutor = taskExecutor;
+    }
+
+    public static void main(String[] args) {
+        TaskManager m = new TaskManager();
+        while (true);
+    }
 }
