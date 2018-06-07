@@ -1,26 +1,20 @@
 package com.oh.scada.task.Task;
 
+import com.oh.scada.task.operation.OperationParameter;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+/**
+ * @author daimeng
+ */
+
+@Data
 public class Task {
-    private ArrayList<String> operateGrains;
-    private ArrayList<HashMap<String,String>> operations;
+    private List<String> operateGrains;
+    private List<List<OperationParameter>> operations;
     private String name;
-    Task(ArrayList<String> operateGrains,ArrayList<HashMap<String,String>> operations){
-        this.operateGrains = operateGrains;
-        this.operations = operations;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public ArrayList<String> getOperateGrains() {
-        return operateGrains;
-    }
-
-    public ArrayList<HashMap<String, String>> getOperations() {
-        return operations;
-    }
 }

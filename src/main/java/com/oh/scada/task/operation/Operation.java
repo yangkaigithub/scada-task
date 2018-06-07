@@ -1,14 +1,12 @@
 package com.oh.scada.task.operation;
 
+import java.util.List;
+
 /**
- * Created by tpusers on 2018/6/3.
+ * @author daimeng
  */
-public class Operation {
-
-    public void operate(int vid , int opCode ,int type){}
-    public void operate(int vid , int opCode ){}
-
-    public void reOperate(int vid , int opCode){}
-
-
+public interface Operation {
+    public void operate(OperationParameter operationParameter);
+    public void bashOperate(List<OperationParameter> operationParameters);
+    public void reOperate(OperationParameter operationParameter);
 }
