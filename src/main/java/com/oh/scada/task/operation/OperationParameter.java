@@ -10,7 +10,7 @@ public class OperationParameter {
 
     private String vid;
 
-    private String opCode;
+    private Object opCode;
 
     private OperationTypeEnum type;
 

@@ -31,7 +31,6 @@ public class ExecuteLogic{
         try{
             //执行任务
             operationsList.forEach(paraOperations->{
-
                 //获得该一步的可并行操作
                 paraOperations.forEach(paraOperation->{
                     operation.operate(paraOperation);
@@ -46,9 +45,9 @@ public class ExecuteLogic{
                 });
 
                 //todo:
-                while(){
+//                while(){
                     //获取操作完成状态,直至完成
-                }
+//                }
             });
 
         }catch (Exception e){

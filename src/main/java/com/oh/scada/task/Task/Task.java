@@ -12,7 +12,7 @@ import java.util.Map;
  * @author daimeng
  */
 
-@Data
+
 public class Task {
     private List<String> operateGrains;
     private List<List<OperationParameter>> operations;

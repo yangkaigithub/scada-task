@@ -1,0 +1,14 @@
+            指令          状态
+
+     (单向)  0 关
+            1 开
+     (双向)  0 停
+            1 开
+            2 关
+
+
+1）operation（抽象类 do redo）执行线路 1.操作 2.状态 3.超时  ，   （vid, status_vid ,o_code , time_out ,）
+2）taskManager 增删查（），，
+3）加入MQ
+4）
+
