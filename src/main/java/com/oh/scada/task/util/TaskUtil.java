@@ -1,9 +1,11 @@
 package com.oh.scada.task.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.List;
 
 /**
  *
@@ -18,6 +20,7 @@ public class TaskUtil {
 
     public static void main(String[] args) {
         Map<String,Object> map = new HashMap<>();
+        List<String> list = new ArrayList<>();
         map.put("111",1000);
         map.put("112",1000000);
         map.put("113",2000000000);
