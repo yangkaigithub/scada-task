@@ -34,14 +34,11 @@ public class ExecuteLogic{
                 //获得该一步的可并行操作
                 paraOperations.forEach(paraOperation->{
                     operation.operate(paraOperation);
-                    //处理非延时操作
-                    if(!(paraOperation.getType().equals(OperationTypeEnum.WAITTIME))){
-                        OperationParameter operationParameter = new OperationParameter();
-                        operationParameter.setVid(paraOperation.getVid());
-                        operationParameter.setOpCode(paraOperation.getOpCode());
-                        operationParameter.setType(paraOperation.getType());
-                        rsysOperationsList.push(operationParameter);
-                    }
+                    OperationParameter operationParameter = new OperationParameter();
+                    operationParameter.setVid(paraOperation.getVid());
+                    operationParameter.setOpCode(paraOperation.getOpCode());
+                    operationParameter.setType(paraOperation.getType());
+                    rsysOperationsList.push(operationParameter);
                 });
 
                 //todo:

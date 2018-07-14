@@ -10,8 +10,14 @@ public class OperationParameter {
 
     private String vid;
 
+    private String statusVid;
+
+    private String statusOpCode;
+
     private Object opCode;
 
     private OperationTypeEnum type;
+
+    private Integer timeOut;
 
 }

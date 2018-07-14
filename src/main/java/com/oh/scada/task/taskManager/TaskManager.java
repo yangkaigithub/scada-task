@@ -167,8 +167,8 @@ public class TaskManager{
         this.taskExecutor = taskExecutor;
     }
 
-    public static void main(String[] args) {
-        TaskManager m = new TaskManager();
-        while (true);
-    }
+//    public static void main(String[] args) {
+//        TaskManager m = new TaskManager();
+//        while (true);
+//    }
 }

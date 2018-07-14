@@ -9,5 +9,4 @@ public interface Operation {
     public void operate(OperationParameter operationParameter);
     public void bashOperate(List<OperationParameter> operationParameters);
     public void reOperate(OperationParameter operationParameter);
-    public
 }
