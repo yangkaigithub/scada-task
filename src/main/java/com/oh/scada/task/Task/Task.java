@@ -17,4 +17,24 @@ public class Task {
     private List<String> operateGrains;
     private List<List<OperationParameter>> operations;
     private String name;
+
+    public List<List<OperationParameter>> getOperations() {
+        return operations;
+    }
+
+    public List<String> getOperateGrains() {
+        return operateGrains;
+    }
+
+    public void setOperateGrains(List<String> operateGrains) {
+        this.operateGrains = operateGrains;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

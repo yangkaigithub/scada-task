@@ -10,15 +10,21 @@ import java.util.List;
  * @date 2018/6/3
  */
 
-@Service
+
 public class OperationImpl implements  Operation{
 
+
     @Override
-    public void operate(OperationParameter operationParameter){}
+    public void run() {
+
+    }
+
     @Override
-    public void bashOperate(List<OperationParameter> operationParameters){}
-    @Override
-    public void reOperate(OperationParameter operationParameter){}
+    public void reverseRun() {
+
+    }
+
+
 
 
 }
