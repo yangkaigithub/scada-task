@@ -11,9 +11,11 @@ public class OperationFactory {
 
     public  static Operation createOperation(OperationParameter parameter){
 
+
+
         //根据不不同的parameter  创建不同的operation
 
-        return new OperationImpl();
+        return new WindowOperation(parameter);
 
     }
 

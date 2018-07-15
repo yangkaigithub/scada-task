@@ -44,9 +44,9 @@ public class ExecuteLogic{
                 });
 
                 //todo:
-                while(true){
-//                    获取操作完成状态,直至完成
-                }
+//                while(true){
+////                    获取操作完成状态,直至完成
+//                }
             });
 
         }catch (Exception e){
@@ -62,9 +62,9 @@ public class ExecuteLogic{
 
                 });
                 //todo:
-                while (true){
-                    //                    获取操作完成状态,直至完成
-                }
+//                while (true){
+//                    //                    获取操作完成状态,直至完成
+//                }
 
             });
 

@@ -8,5 +8,5 @@ import java.util.List;
 public interface Operation {
     public void run();
     public void reverseRun();
-
+    public Integer status();
 }
