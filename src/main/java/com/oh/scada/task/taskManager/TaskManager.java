@@ -15,8 +15,6 @@ import java.util.concurrent.*;
 public class TaskManager{
 
 
-
-
     /* 调用 taskExecutor  ，去执行task */
     @Autowired
     private TaskExecutor taskExecutor;
@@ -157,7 +155,6 @@ public class TaskManager{
             }
         }
     }
-    
 
 
 //    public static void main(String[] args) {

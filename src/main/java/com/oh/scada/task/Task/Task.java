@@ -18,6 +18,11 @@ public class Task {
     private List<List<OperationParameter>> operations;
     private String name;
 
+    private Integer startTime; //时间戳
+    private Integer endTime;
+    private TaskStatusEnum taskStatus = TaskStatusEnum.WAITING;
+
+
     public List<List<OperationParameter>> getOperations() {
         return operations;
     }

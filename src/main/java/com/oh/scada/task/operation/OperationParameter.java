@@ -20,6 +20,13 @@ public class OperationParameter {
 
     private Integer timeOut;
 
+    private OperationStatusEnum operationStatus = OperationStatusEnum.WAITING;
+    private Integer starTime;
+    private Integer endTime;
+
+
+
+
     public String getVid() {
         return vid;
     }
