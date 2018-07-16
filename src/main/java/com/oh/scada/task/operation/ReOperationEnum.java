@@ -9,7 +9,9 @@ import java.util.Map;
 public class ReOperationEnum {
     public static Map<String,String> reOperationMaps = new HashMap<>();
     static{
+        
         reOperationMaps.put("open","close");
+
     }
 
     public static Map<String,String> getReOperationMaps(){

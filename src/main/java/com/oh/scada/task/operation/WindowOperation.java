@@ -20,7 +20,8 @@ package com.oh.scada.task.operation;
 
     @Override
     public void reverseRun() {
-        System.out.println("run reverse:");
+        System.out.println("run reverse:"+parameter.getVid());
+
     }
 
     @Override

@@ -27,6 +27,7 @@ public class TaskManager{
     /* 存放着正在执行的task */
     private ConcurrentHashMap<String,Integer> workingTasks;
 
+
     /* taskQueue 存放着待分配去执行的 task */
     private BlockingQueue<Task> taskQueue;
 
@@ -127,12 +128,7 @@ public class TaskManager{
                     }
                 }
 
-//                calendar = Calendar.getInstance(TimeZone.getDefault());
-//                long thisTime =calendar.getTimeInMillis();
-//                if (thisTime -lastTime>=2000){
-//                    lastTime = thisTime;
-//                    System.out.println( "lalala");
-//                }
+
 
             }
         }catch (Exception e){
@@ -161,11 +157,8 @@ public class TaskManager{
             }
         }
     }
+    
 
-
-    public void setTaskExecutor(TaskExecutor taskExecutor) {
-        this.taskExecutor = taskExecutor;
-    }
 
 //    public static void main(String[] args) {
 //        TaskManager m = new TaskManager();
